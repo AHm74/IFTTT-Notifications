@@ -52,4 +52,13 @@ def check_notification():
 				report["value1"] = m.get("headline")
 				report["value2"] = m.get("message")
 				requests.post("https://maker.ifttt.com/trigger/{}/with/key/{}".format(ifttt_event, ifttt_key), data=report)
+
+				pushover = {}
+				pushover["token"] = "a7da3td6xqv4a8p8i5jpg4fgtc7n6t"
+				pushover["user"] = "u23ar94z7ma46q84t6ietdj7wis2kv"
+				pushover["message"] = m.get("message")
+				pushover["title"] = m.get("headline")
+				requests.post("https://api.pushover.net/1/messages.json", data=report)
+
+
 				notified.append(m.get("id"))
