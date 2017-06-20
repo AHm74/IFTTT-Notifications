@@ -58,7 +58,7 @@ def check_notification():
 				pushover["user"] = "u23ar94z7ma46q84t6ietdj7wis2kv"
 				pushover["message"] = m.get("message")
 				pushover["title"] = m.get("headline")
-				requests.post("https://api.pushover.net/1/messages.json", data=report)
+				requests.post("https://api.pushover.net/1/messages.json", data=pushover)
 
 
 				notified.append(m.get("id"))
